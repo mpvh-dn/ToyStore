@@ -40,9 +40,22 @@ namespace ToyStore.Controllers
                 return StatusCode(500, "Lỗi API: " + ex.Message);
             }
         }
+        [HttpGet("highlight")]
+        public async Task<IActionResult> GetHighlightProducts()
+        {
+            var products = await _context.Products
+                .Where(p => p.Status == true)  // chỉ lấy sản phẩm đang hoạt động
+                .OrderByDescending(p => p.Price1) // hoặc có thể theo số lượng mua nhiều nhất
+                .Take(8) // Lấy top 8 nổi bật
+                .ToListAsync();
 
-
+            return Ok(products);
+        }
 
 
     }
+
+
+
+
 }
