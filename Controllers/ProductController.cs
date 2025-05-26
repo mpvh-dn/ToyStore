@@ -51,6 +51,29 @@ namespace ToyStore.Controllers
 
             return Ok(products);
         }
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchProducts([FromQuery] string keyword)
+        {
+            try
+            {
+                var results = await _context.Products
+                    .Where(p => p.Name.Contains(keyword) && p.Status == true)
+                    .Select(p => new
+                    {
+                        p.ProductId,
+                        p.Name,
+                        p.Price1,
+                        p.UrlImage1
+                    })
+                    .ToListAsync();
+
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Lỗi khi tìm kiếm: " + ex.Message);
+            }
+        }
 
 
     }
