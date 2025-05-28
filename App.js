@@ -24,10 +24,47 @@ function HomePage() {
         </div>
       </div>
 
+      {/* Sản phẩm nổi bật */}
       <section style={{ background: '#f8f8f8', padding: '20px' }}>
         <HighlightSlider />
       </section>
 
+      {/* banner nằm giữa */}
+     <div style={{ position: 'relative', textAlign: 'center', margin: '40px 0' }}>
+  <img
+    src="https://static.vecteezy.com/ti/vetor-gratis/p1/39227377-conjunto-do-fofa-animais-linha-mao-desenhado-estilo-aguarde-colorida-balao-em-nuvem-ceu-background-cat-sapo-coelho-pinguim-shiba-inu-cachorro-desenho-animado-colecao-kawaii-ilustracao-vetor.jpg"
+    alt="Khám phá niềm vui tuổi thơ"
+    style={{
+      width: '80%',
+      maxWidth: '960px',
+      height: 'auto',
+      borderRadius: '20px',
+      display: 'block',
+      margin: '0 auto',
+    }}
+  />
+  <div
+    style={{
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      background: 'rgba(255, 255, 255, 0.85)',
+      padding: '12px 24px',
+      borderRadius: '40px',
+      fontSize: '24px',
+      fontWeight: 'bold',
+      color: '#c41c1c',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+   
+    }}
+  >
+    Khám phá niềm vui tuổi thơ
+  </div>
+</div>
+
+
+      {/* Danh sách sản phẩm */}
       <section style={{ padding: '20px' }}>
         <ProductList />
       </section>
